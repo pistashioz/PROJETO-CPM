@@ -1,22 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
     <title>Document</title>
-    <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+    <script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>
 </head>
 <body>
     <a-scene>
         <a-assets>
             <img id="sky" src="Clear_Sky_1.jpg">
             <a-asset-items id="quarto" src="Quarto.glb"></a-asset-items>
-            <a-asset-items id="teste" src="Assets\spoon.glb"></a-asset-items>
-
-
+            <a-asset-items id="flores" src="Assets\rose_in_a_pot.glb"></a-asset-items>
+            <a-asset-items id="sword" src="Assets\sword_box.glb"></a-asset-items>
+            <a-asset-items id="quadro" src="Assets\quadro.glb"></a-asset-items>
+            <a-asset-items id="escudo" src="Assets\shield.glb"></a-asset-items>
+            <a-asset-items id="colher" src="Assets\spoon.glb"></a-asset-items>
         </a-assets>
         <a-entity gltf-model="#quarto"></a-entity>
-        <a-entity gltf-model="#teste" position="-5 2 0"></a-entity>
+        <a-entity gltf-model="#flores" position="-6.0 0.6 0.3" class="hoverable_flores"></a-entity>
+        <a-entity gltf-model="#sword" position="8.2 -1.2 1.2" class="hoverable_espada"></a-entity>
+        <a-entity gltf-model="#quadro" position="0 3.28 -9.70" class="hoverable_quadro"></a-entity>
+        <a-entity gltf-model="#escudo" position="0 0.28 -9.70" class="hoverable_escudo"></a-entity>
+        <a-entity gltf-model="#colher" position="-5 -0.5 -7.70" class="hoverable_colher"></a-entity>
+
+        <a-entity position="0 1.8 0">
+            <a-sound src="music.mp3" autoplay="true" volume="0.2"></a-sound>
+          </a-entity>
 
         <a-sky src = "#sky"></a-sky>
+        <a-camera>
+            <a-cursor raycaster="objects: .hoverable_flores,.hoverable_espada,.hoverable_quadro,.hoverable_escudo, .hoverable_colher" color="#FF0000"></a-cursor>
+            <a-entity id="Texto_Flores" visible="false" geometry="primitive: plane; width: 0.6; height: 0.8;" material="src: url(paper.jpg);" position="0.7 0 -1" text=" 
+                                                                                                                                                            value:--------------25 de abril-------------  O 25 de abril é uma data historica em Portugal que marca a Revolucao dos Cravos de 1974, quando o regime ditatorial foi derrubado e instaurou-se uma democracia no pais. Foi um movimento liderado por militares que contou com o apoio popular, e levou a queda do Estado Novo e a libertacao de presos politicos. Desde entao, o 25 de abril e comemorado como o Dia da Liberdade em Portugal.;
+                                                                                                                                                            color:black;
+                                                                                                                                                            wrapCount:22;
+                                                                                                                                                            width:0.5">
+            </a-entity>
+
+            <a-entity id="Texto_espada" visible="false" geometry="primitive: plane; width: 0.6; height: 0.8;" material="src: url(paper.jpg);" position="0.7 0 -1" text=" 
+                                                                                                                                                            value: ----- D.afonso Henriques ----- D. Afonso Henriques foi o primeiro rei de Portugal, governando de 1139 ate sua morte em 1185. Ele liderou a luta pela independencia de Portugal contra os mouros e, em 1143, obteve o reconhecimento da independencia do país pelo rei de Leao. Ele também iniciou uma série de conquistas militares e expansão territorial, ajudando a estabelecer as bases do futuro estado portugues.;
+                                                                                                                                                            color:black;
+                                                                                                                                                            wrapCount:22;
+                                                                                                                                                            width:0.5">
+            </a-entity>
+
+            <a-entity id="Texto_escudo" visible="false" geometry="primitive: plane; width: 0.6; height: 0.8;" material="src: url(paper.jpg);" position="0.7 0 -1" text=" 
+                                                                                                                                                            value: --------------D.sebastiao-------------D. Sebastiao foi o Rei de Portugal entre 1557 e 1578, tendo ascendido ao trono com apenas tres anos de idade. Ele ficou conhecido por sua tentativa fracassada de recuperar a cidade de Ceuta, no norte da África, e por sua morte prematura na Batalha de Alcacer-Quibir, em 1578, o que levou a uma crise de sucessão em Portugal. Ele e lembrado como um rei jovem e idealista que morreu em uma batalha perdida, deixando um legado de incerteza e instabilidade para o pais.;
+                                                                                                                                                            color:black;
+                                                                                                                                                            wrapCount:23;
+                                                                                                                                                            width:0.5">
+            </a-entity>
+
+            <a-entity id="Texto_quadro" visible="true" geometry="primitive: plane; width: 0.6; height: 0.8;" material="src: url(paper.jpg);" position="0.7 0 -1" text=" 
+                                                                                                                                                            value:---------Descobrimentos-------- Os Descobrimentos foram um periodo historico que ocorreu entre os seculos XV e XVI, no qual os países europeus exploraram e colonizaram novas terras, principalmente nas Americas, Africa e Asia. Isso levou a expansao do comercio, ao desenvolvimento de novas rotas comerciais e a difusao da cultura europeia pelo mundo. No entanto, tambem resultaram em conflitos, exploracao de recursos e apropriação de terras que tiveram efeitos duradouros nas sociedades colonizadas.;
+                                                                                                                                                            color:black;
+                                                                                                                                                            wrapCount:23;
+                                                                                                                                                            width:0.5">
+            </a-entity>
+
+            <a-entity id="Texto_colher" visible="false" geometry="primitive: plane; width: 0.6; height: 0.8;" material="src: url(paper.jpg);" position="0.7 0 -1" text=" 
+                                                                                                                                                            value: -----Batalha de Aljubarrota---      A Batalha de Aljubarrota ocorreu em 14 de agosto de 1385, em Portugal, e foi travada entre as forcas portuguesas lideradas por D. Joao I e as forcas castelhanas lideradas por D. Juan I. A vitoria portuguesa foi atendida e garantiu a independencia de Portugal , consolidando a dinastia de Avis no trono. A batalha e considerada um marco na história de Portugal e foi comemorada por anos como uma grande vitoria nacional.;
+                                                                                                                                                            color:black;
+                                                                                                                                                            wrapCount:22;
+                                                                                                                                                            width:0.5">
+            </a-entity>
+
+        </a-camera>
+
+        <script>
+            const cursor = document.querySelector('a-cursor');
+            const Texto_Flores = document.querySelector('#Texto_Flores');
+            const Texto_espada = document.querySelector('#Texto_espada');
+            const Texto_quadro = document.querySelector('#Texto_quadro');
+            const Texto_escudo = document.querySelector('#Texto_escudo');
+            const Texto_colher = document.querySelector('#Texto_colher');
+
+            cursor.addEventListener('mouseenter', function (e) {
+                const hoveredEl = e.detail.intersectedEl;
+                if (hoveredEl.classList.contains('hoverable_flores')) {
+                    Texto_Flores.setAttribute('visible', 'true');
+                }else if (hoveredEl.classList.contains('hoverable_escudo')) {
+                    Texto_escudo.setAttribute('visible', 'true');
+                }else if (hoveredEl.classList.contains('hoverable_espada')) {
+                    Texto_espada.setAttribute('visible', 'true');
+                }else if (hoveredEl.classList.contains('hoverable_quadro')) {
+                    Texto_quadro.setAttribute('visible', 'true');
+                }else if (hoveredEl.classList.contains('hoverable_colher')) {
+                    Texto_colher.setAttribute('visible', 'true');
+                }
+            });
+
+            cursor.addEventListener('mouseleave', function () {
+                Texto_Flores.setAttribute('visible', 'false');
+                Texto_escudo.setAttribute('visible', 'false'); 
+                Texto_espada.setAttribute('visible', 'false');
+                Texto_quadro.setAttribute('visible', 'false');
+                Texto_colher.setAttribute('visible', 'false');
+            });
+        </script>
     </a-scene>
 </body>
 </html>
